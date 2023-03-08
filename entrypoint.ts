@@ -1,7 +1,8 @@
 import { examplePlugin } from "./vendor/example/example"
+import {flarumGroup} from "./vendor/flarumGroup/flarumGroup";
 
 const pluginList = [
-    examplePlugin
+    flarumGroup
 ]
 
 export async function callbackHandler(callback: any) {
