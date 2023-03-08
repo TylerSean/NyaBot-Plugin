@@ -27,6 +27,9 @@ function genSmData(content: string) {
 
 // Process post_type 'message'
 async function message(callback: any) {
+    if (callback.group_id != '432511748' || callback.user_id == '188723593') {
+        return
+    }
     if (callback.message == '.debug') {
         const data = [
             genSmData('F12 看看控制台有无输出'),
