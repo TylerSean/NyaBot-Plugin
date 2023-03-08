@@ -12,10 +12,10 @@ export const pluginInfo = {
     repository: 'http://example.com'
 }
 
-function genSmData(content: string) {
+function genSmData(name: string, content: string) {
     const data = {
-        "name": "算命大师",
-        "uin": "1877035391",
+        "name": name,
+        "uin": "113764782",
         "content": content
     }
     const struct = {
@@ -27,18 +27,19 @@ function genSmData(content: string) {
 
 // Process post_type 'message'
 async function message(callback: any) {
-    if (callback.group_id != '432511748' || callback.user_id == '188723593') {
+    if (callback.group_id != 432511748 && callback.group_id != 188723593) {
         return
     }
     if (callback.message == '.debug') {
         const data = [
-            genSmData('F12 看看控制台有无输出'),
-            genSmData('因为有可能是客户端毛病'),
-            genSmData('https://docs.flarum.org/zh/troubleshoot/'),
-            genSmData('你也可以打开 config.php 把 debug 改为 true'),
-            genSmData('尽量一次性提供足够的信息让群友们看'),
-            genSmData('我其实很讨厌说这套说辞。已经挂在了群公告里，但是我每天最少都会说一次')
+            genSmData('超级练习册', 'F12 看看控制台有无输出'),
+            genSmData('超级练习册', '因为有可能是客户端毛病'),
+            genSmData('超级练习册', 'https://docs.flarum.org/zh/troubleshoot/'),
+            genSmData('超级练习册', '你也可以打开 config.php 把 debug 改为 true'),
+            genSmData('超级练习册', '尽量一次性提供足够的信息让群友们看'),
+            genSmData('超级练习册', '我其实很讨厌说这套说辞。已经挂在了群公告里，但是我每天最少都会说一次')
         ]
+        await new Promise(f => setTimeout(f, 1000))
         const res = await sendGroupForwardMsg(callback.group_id, data)
         console.log(res)
     }
