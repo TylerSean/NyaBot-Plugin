@@ -43,6 +43,11 @@ async function message(callback: any) {
         const res = await sendGroupForwardMsg(callback.group_id, data)
         console.log(res)
     }
+    if (callback.message == '.bt') {
+        await new Promise(f => setTimeout(f, 1000))
+        const res = await sendGroupMsg(callback.group_id, '这个群不是宝塔售后群，宝塔问题请家宝塔群问')
+        console.log(res)
+    }
 }
 
 // Process post_type 'request'
