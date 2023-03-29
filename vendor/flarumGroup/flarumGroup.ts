@@ -48,6 +48,16 @@ async function message(callback: any) {
         const res = await sendGroupMsg(callback.group_id, '这个群不是宝塔售后群，宝塔问题请加宝塔群问')
         console.log(res)
     }
+    if (callback.message == '.mysql') {
+        await new Promise(f => setTimeout(f, 1000))
+        const res = await sendGroupMsg(callback.group_id, '这个群不是MySQL新手教学群')
+        console.log(res)
+    }
+    if (callback.message == '.ks') {
+        await new Promise(f => setTimeout(f, 1000))
+        const res = await sendGroupMsg(callback.group_id, 'KubeSphere是本群唯一指定面板')
+        console.log(res)
+    }
 }
 
 // Process post_type 'request'
